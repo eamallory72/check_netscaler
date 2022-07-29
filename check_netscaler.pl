@@ -436,6 +436,10 @@ sub check_state {
     $field_name         = 'name';
     $field_state        = 'state';
     $enable_perfdata    = 0;
+   } elsif ($plugin->opts->objecttype eq 'nsacl') {
+            $params{'endpoint'} = $plugin->opts->endpoint || 'config';
+            $field_name = 'aclname'; $field_state = 'state';
+            $enable_perfdata = 0; 
   } else {
     $params{'endpoint'} = $plugin->opts->endpoint || 'stat';
   }
